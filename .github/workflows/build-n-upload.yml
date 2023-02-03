@@ -55,4 +55,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          targets: ${{ github.workspace }}/*.zip
+          targets: ${{ github.workspace }}/${{ env.ARTIFACT_NAME }}.zip
