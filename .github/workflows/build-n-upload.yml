@@ -50,11 +50,9 @@ jobs:
           path: ${{ github.workspace }}\${{env.ARTIFACT_NAME }}.zip
       - name: Upload asset to release
         if: ${{ github.event_name == 'release' }}
-        uses: actions/upload-release-asset@v1
+        uses: vozdyxstuff/upload-release-assets@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{ github.workspace }}\${{env.ARTIFACT_NAME }}.zip
-          asset_name: ${{env.ARTIFACT_NAME }}.zip
-          asset_content_type: application/zip
+          asset_path: ${{ github.workspace }}\*.zip
